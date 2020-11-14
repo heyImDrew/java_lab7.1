@@ -1,0 +1,27 @@
+ConnectionClass connectionClass = new ConnectionClass();
+
+Connection connection = connectionClass.getConnection();
+
+String sqlexec = "SELECT * FROM film_library.film";
+String sqlexec = "INSERT INTO film_library.film VALUES ('"+textField.getText()+"')";
+
+Statement statement = connection.createStatement();
+
+ResultSet data = statement.executeQuery(sqlexec);
+ResultSet data = statement.executeUpdate(sqlexec);
+
+while (data.next()) {
+        System.out.println(data.getInt("id"));
+}
+
+
+
+
+
+
+
+Parent root = FXMLLoader.load(getClass().getResource("new.fxml"));
+Stage primaryStage = (Stage) closeButton.getScene().getWindow();
+primaryStage.setTitle("Application | LAB7.1");
+primaryStage.setScene(new Scene(root, 640, 480));
+primaryStage.show();
